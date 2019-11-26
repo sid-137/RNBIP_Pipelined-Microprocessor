@@ -3,3 +3,4 @@
 .DS_Store
 top_test.v
 topmod
+*.txt

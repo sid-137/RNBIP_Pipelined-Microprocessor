@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module FlagRegister(
-        input clk,
+        input           clk,
         input   [2:0]   OC_fl,  //From IR
         input   [3:0]   inArray,//From ALU
         input           S_AL,   //Control bit, meaningful operation
@@ -11,15 +11,12 @@ module FlagRegister(
     reg [7:0]   flagArray;
     
     // Startup
-    initial
-        begin
-            flagArray = 8'h00;
-        end
-    
+    initial begin
+        flagArray = 8'h00;
+    end
     // End Startup
     
     always@(negedge S_AL)
-       //if(S_AL) 
         begin
             flagArray[0] <= inArray[0];  //ZERO          Z
             flagArray[1] <= ~inArray[0]; //NOT ZERO      NZ
@@ -31,7 +28,6 @@ module FlagRegister(
             flagArray[7] <= ~inArray[3]; //Parity Even   PE
         end
 
-        
     assign carry = flagArray[2];
     assign FL = flagArray[OC_fl];
 

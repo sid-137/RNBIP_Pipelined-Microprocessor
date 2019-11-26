@@ -12,11 +12,12 @@ reg [7:0] SP_reg;
 
 initial SP_reg = 8'hFF;
 
+// MUX 6
 assign SP_address = D_SP ? (SP_reg-1) : SP_reg;
 
 always @(posedge clk)
 begin
-	case({I_SP,D_SP})
+	case({I_SP,D_SP})	//MUX 7
 	2'b00:	SP_reg <= SP_reg;	// No Stack operation
 	2'b10:	SP_reg <= SP_reg+1;	// I_SP = 1 
 	2'b01:	SP_reg <= SP_reg-1;	// D_SP = 1

@@ -2,7 +2,6 @@
 
 module InstructionRegister(
     input             CLK,
-    //input             L_IR,
     input       [7:0] PM_in,
     output reg  [7:0] OC_out
     );
@@ -11,7 +10,6 @@ module InstructionRegister(
 
     always @(posedge CLK)
     begin
-    //    if(L_IR)
         OC_out = PM_in;
     end
 endmodule

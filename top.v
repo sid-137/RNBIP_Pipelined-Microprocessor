@@ -11,14 +11,13 @@ wire D_SP, I_SP;          //SP    (and MUX7)
 wire S_AL, L_R0, L_RN;    //Register Array
 wire S11, S10;            //MUX1 - PC
 wire S20;                 //MUX2 - DM (address selector)
-wire S60;                 //MUX6 - SP (output)
 wire S30, S40;            //MUX3, MUX4 - ALU inputs A, B
 wire S50;                 //MUX5 - DM (input for write)
 wire S82, S81, S80;       //MUX8 - Register Array
 
 assign I_PC = 1'b1;
 
-// Buffers
+// reg - Buffers
 reg [7:0] OR1, OR2;
 reg [7:0] OC_R, OC_E;
 reg [7:0] NPC;
@@ -89,18 +88,6 @@ InstructionRegister myIR(
     .OC_out(opcodeR)
 );
 
-// RegisterArray myRA(
-// 	.R0_out(R0_out),
-// 	.RN_out(RN_out),
-// 	.ALU_in(ALU_out),
-// 	.OR2_in(OR2_out),
-// 	.DM_in(dataOut),
-// 	.SP_in(SP_out),
-// 	.RN_Reg_Sel(RS),
-// 	.Control_in({L_RN,L_R0}),
-// 	.S8({S82,S81,S80}),
-// 	.clk(clk)
-// );
 RegisterArray myRA(
 	.R0_out(R0_out),
 	.RN_out(RN_out),
@@ -183,7 +170,6 @@ CCG2 myCTRLE(
     .S_AL(S_AL), .L_R0(L_R0), .L_RN(L_RN),      //Register Array
     .S11(S11), .S10(S10),                       //MUX1 - PC
     .S20(S20),                                  //MUX2 - DM (address selector)
-    .S60(S60),                                  //MUX6 - SP (output)
     .S30(S30), .S40(S40),                       //MUX3, MUX4 - ALU inputs A, B
     .S50(S50),                                  //MUX5 - DM (input for write)
     .S82(S82), .S81(S81), .S80(S80)             //MUX8 - Register Array
