@@ -1,3 +1,5 @@
 *.vcd
 **/*.vcd
 .DS_Store
+top_test.v
+topmod

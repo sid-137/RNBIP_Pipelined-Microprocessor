@@ -12,7 +12,7 @@ reg [7:0] SP_reg;
 
 initial SP_reg = 8'hFF;
 
-assign SP_address = I_SP ? (SP_reg+1) : SP_reg;
+assign SP_address = D_SP ? (SP_reg-1) : SP_reg;
 
 always @(posedge clk)
 begin

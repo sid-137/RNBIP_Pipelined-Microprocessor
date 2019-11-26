@@ -176,7 +176,7 @@ begin
         muxBits <= 10'b00_00010_000;
     end
     8'b0110_1_xxx : begin           //PSH_rn
-        controlBits <= 8'b01010010;
+        controlBits <= 8'b01000010;
         muxBits <= 10'b00_10010_000;
     end
     8'b0111_0_000 : begin           //RRA

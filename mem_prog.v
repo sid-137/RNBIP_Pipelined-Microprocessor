@@ -8,7 +8,6 @@ module ProgramMemory(
 reg [15:0] progMem[255:0];
 
 initial begin
-    //$readmemh("/Users/sid/Code/Verilog/Pipeline-1/program.txt",progMem);
     //$readmemh("program.txt",progMem);
 end
 

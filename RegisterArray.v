@@ -8,9 +8,18 @@ module RegisterArray(
 	input	[7:0]	DM_in,
 	input	[7:0]	SP_in,
 	input	[2:0]	RN_Reg_Sel,
-	input	[1:0]	Control_in,	// LR0, LRN, MUX8
+	input	[1:0]	Control_in,	// LR0, LRN
 	input	[2:0]	S8,
-	input			clk
+	input			clk,
+	// Use following for debugging
+	output	[7:0]	R0,
+	output	[7:0]	R1,
+	output	[7:0]	R2,
+	output	[7:0]	R3,
+	output	[7:0]	R4,
+	output	[7:0]	R5,
+	output	[7:0]	R6,
+	output	[7:0]	R7
 	);
 
 reg	[7:0] Reg_Array [7:0];
@@ -54,14 +63,14 @@ assign RA_in =	(S8 == Reg_SP)	?	SP_in	: (
 always @ (posedge clk)
 begin
     if(L_R0 & L_RN) begin
-       Reg_Array[0] = RA_in;
-       Reg_Array[1] = RA_in;
-       Reg_Array[2] = RA_in;
-       Reg_Array[3] = RA_in;
-       Reg_Array[4] = RA_in;
-       Reg_Array[5] = RA_in;
-       Reg_Array[6] = RA_in;
-       Reg_Array[7] = RA_in;
+       Reg_Array[0] <= RA_in;
+       Reg_Array[1] <= RA_in;
+       Reg_Array[2] <= RA_in;
+       Reg_Array[3] <= RA_in;
+       Reg_Array[4] <= RA_in;
+       Reg_Array[5] <= RA_in;
+       Reg_Array[6] <= RA_in;
+       Reg_Array[7] <= RA_in;
     end
 	
    	else if (L_R0)
@@ -74,5 +83,15 @@ begin
 		Reg_Array[RN_Reg_Sel] = RA_in;
 	end
 end
+
+//Debug Register Array
+assign R0 = Reg_Array[0];
+assign R1 = Reg_Array[1];
+assign R2 = Reg_Array[2];
+assign R3 = Reg_Array[3];
+assign R4 = Reg_Array[4];
+assign R5 = Reg_Array[5];
+assign R6 = Reg_Array[6];
+assign R7 = Reg_Array[7];
 
 endmodule
