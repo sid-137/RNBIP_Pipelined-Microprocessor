@@ -16,8 +16,8 @@ module FlagRegister(
     end
     // End Startup
     
-    always@(negedge S_AL)
-        begin
+    always@(posedge clk) begin
+        if (S_AL) begin
             flagArray[0] <= inArray[0];  //ZERO          Z
             flagArray[1] <= ~inArray[0]; //NOT ZERO      NZ
             flagArray[2] <= inArray[1];  //Carry         C
@@ -27,6 +27,7 @@ module FlagRegister(
             flagArray[6] <= inArray[3];  //Parity Odd    PO
             flagArray[7] <= ~inArray[3]; //Parity Even   PE
         end
+    end
 
     assign carry = flagArray[2];
     assign FL = flagArray[OC_fl];

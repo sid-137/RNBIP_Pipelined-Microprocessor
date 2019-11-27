@@ -15,6 +15,7 @@ wire S30, S40;            //MUX3, MUX4 - ALU inputs A, B
 wire S50;                 //MUX5 - DM (input for write)
 wire S82, S81, S80;       //MUX8 - Register Array
 
+wire branch_neg;
 assign I_PC = 1'b1;
 
 // reg - Buffers
@@ -53,7 +54,7 @@ assign opcodeE = OC_E;
 assign opcodeR = OC_R;
 
 always @ (posedge clk) begin
-    NPC = PC_out + 8'h01;
+    NPC <= PC_out;
 end
 
 always @ (opcodeE) begin
@@ -155,7 +156,7 @@ DataMemory myDM(
 CCG1 myCTRLR(
     .opcode_in(opcodeR),
     .FL(FL),
-    //.opcode_out(opcodeE),
+    .branch_neg(branch_neg),
     .flagCheck(flagCheck),
     .clk(clk)
 );
@@ -164,6 +165,7 @@ CCG2 myCTRLE(
     .clk(clk),
     .opcode(opcodeE),
     .flagCheck(flagCheck),
+    .branch_neg(branch_neg),
     .RD(RD),  .WR(WR),                          //Data Memory
     .L_PC(L_PC),                                //PC
     .D_SP(D_SP), .I_SP(I_SP),                   //SP    (and MUX7)

@@ -19,9 +19,9 @@ begin
 end
 
 // ---- MUX 1 ----
-parameter [1:0] PC_R0 = 2'b00;
-parameter [1:0] PC_DM = 2'b01;
-parameter [1:0] PC_OR2 = 2'b10;
+parameter [1:0] PC_R0 = 2'b11;
+parameter [1:0] PC_DM = 2'b10;
+parameter [1:0] PC_OR2 = 2'b01;
 
 assign PC_in =	({S11,S10}==PC_R0)	?	R0_in	: (
 				({S11,S10}==PC_DM)	?	DM_in	: (

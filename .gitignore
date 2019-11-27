@@ -1,6 +1,6 @@
 *.vcd
 **/*.vcd
 .DS_Store
-top_test.v
+top_test*
 topmod
 *.txt
