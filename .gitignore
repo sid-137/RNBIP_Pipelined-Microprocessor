@@ -1,6 +1,7 @@
+*
+!*.*
+.DS_Store
 *.vcd
 **/*.vcd
-.DS_Store
-top_test*
-topmod
 *.txt
+top_test*
