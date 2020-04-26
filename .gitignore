@@ -1,5 +1,6 @@
 *
 !*.*
+!LICENSE
 .DS_Store
 *.vcd
 **/*.vcd
