@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module ALUbasic(
+module ALU(
 	output  [7:0]   Out,          // Output 8 bit
 	output  [3:0]   flagArray,    // not holding only driving EDI
 	input           Cin,          // Carry input bit
@@ -66,4 +66,4 @@ module ALUbasic(
     assign  Positive = ~(Out[7]);
     assign  flagArray = {OddParity,Positive,Cout,Zero};
     
-endmodule
+endmodule // ALU

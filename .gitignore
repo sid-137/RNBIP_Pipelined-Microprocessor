@@ -1,8 +1,8 @@
-*
-!*.*
-!LICENSE
+!*.v
 .DS_Store
 *.vcd
-**/*.vcd
 *.txt
-top_test*
+!src/DMinit.txt
+Makefile
+*test*
+topmod

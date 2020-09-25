@@ -28,7 +28,7 @@ module DataMemory(
     end
 
     initial begin
-        //$readmemh("DMinit.txt",dataMem);
+        $readmemh("DMinit.txt",dataMem);
     end
     
 endmodule // DataMemory
